@@ -6,21 +6,18 @@
     --yellow: #f2f8a7;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
 @font-face {
-    font-family: Roadster; /* Font neve, amit majd használsz */
-    src: url('./Assets/Fonts/ROADSTER.ttf') format('truetype'); /* Font elérési útja */
+    font-family: Oldcar; /* Font neve, amit majd használsz */
+    src: url('./Assets/Fonts/OldCar.otf') format('truetype'); /* Font elérési útja */
 }
 
 @font-face {
-    font-family: Giver; /* Font neve, amit majd használsz */
-    src: url('./Assets/Fonts/Giver.ttf') format('truetype'); /* Font elérési útja */
+    font-family: Ezarion; /* Font neve, amit majd használsz */
+    src: url('./Assets/Fonts/Ezarion.ttf') format('truetype'); /* Font elérési útja */
 }
 
-@font-face {
-    font-family: Courage; /* Font neve, amit majd használsz */
-    src: url('./Assets/Fonts/Courage.ttf') format('truetype'); /* Font elérési útja */
-}
+
 *{
     margin: 0;
     padding: 0;
@@ -29,14 +26,13 @@
 
 body {
     overflow: hidden;
-    font-family: "Pathway Extreme", sans-serif;
+    font-family: Ezarion,  Arial, sans-serif;
 }
 
 .main {
     width: 100%;
     height: 100dvh;
     display: flex;
-    align-items: center;
     justify-content: center;
     background: url("./Assets/night-city.webp") center no-repeat;
     background-size: cover;
@@ -57,8 +53,8 @@ header {
 
 header h1 {
     color: var(--light);
-    font-family: Giver, Arial, sans-serif;
-    font-size: 3rem;
+    font-family: Oldcar, Arial, sans-serif;
+    font-size: 3.9rem;
     text-shadow:
             0 0 3px var(--light),
             0 0 6px var(--light-blue),
@@ -72,6 +68,7 @@ header h1 {
 
 .container {
     position: relative;
+    margin-top: 15vh;
     width: 400px;
     height: auto;
     border-radius: 10px;
@@ -80,8 +77,8 @@ header h1 {
     align-items: center;
     backdrop-filter:  blur(5px);
     box-shadow: 8px 25px 45px var(--dark);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-right: 3px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--light-blue);
+    border-right: 3px solid var(--dark);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -89,14 +86,34 @@ header h1 {
     width: 100%;
     height: 100%;
     padding: 40px;
+    margin-top: 2.5rem;
 }
 
-.form h1{
+.form-text {
+    position:absolute;
+    top: -1px;
+    padding: 15px 20px 15px 20px;
+    border-radius: 0 0 15px 15px;
+    border-right:  1px solid var(--light);
+    border-left: 1px solid var(--light);
+    border-top: 2px solid var(--dark);
+    border-bottom: 1px solid var(--light-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 3px 8px 14px rgb(5, 5, 5); 
+    background: -webkit-linear-gradient(to right, #34053f, #46057c), #34053f;
+    background: linear-gradient(to right, #34053f, #46057c, #34053f);
+}
+
+
+.form-text h1{
     position: relative;
     color: var(--light);
     font-size: 2rem;
     font-weight: 600;
-    margin-bottom: 3rem;
+    margin-bottom: 0.5rem;
 }
 
 .form h1::before {
@@ -121,12 +138,33 @@ header h1 {
     width: 100%;
     border: none;
     outline: none;
+    justify-content: center;
     padding: 10px 20px;
     border: 1px solid var(--light-blue);
-    border-radius: 25px;
+    border-radius: 15px;
     font-size: 1.2rem;
     box-shadow: 2px 2px 30px var(--dark);
     background-color: transparent;
+}
+
+.form .input-box input[type="text"] {
+    text-align: center;
+    color: var(--light);
+}
+
+.form .input-box input[type="password"] {
+    text-align: center;
+    color: var(--light);
+}
+
+
+.favicon {
+    position: relative;
+    top: 2rem;
+    left: 15px;
+    color: var(--light);
+    size: 1rem;
+
 }
 
 .user-label {
@@ -134,7 +172,7 @@ header h1 {
     left: 15px;
     color: var(--light);
     font-size: 1.2rem;
-    font-weight: 550;
+    font-weight: 450;
     pointer-events: none;
     padding: 10px;
     transform: translateY(-2.15rem);
@@ -153,16 +191,80 @@ header h1 {
 
 }
 
+.remember-forgot {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.checkbox {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid var(--light-blue);
+    border-radius: 5px;
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .checkbox:before {
+    content: "";
+    background-color: var(--light-blue);
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .checkbox:checked:before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .checkbox-label {
+    font-size: 0.9rem;
+    color: var(--light);
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .forgot {
+    font-size: 0.8rem;
+    color: var(--light);
+    padding-top: 1rem;
+    text-decoration: none;
+  }
+
+  .forgot:hover  {
+    color: var(--yellow);
+    text-decoration: underline;
+    transition: all 0.3s ease-in-out;
+  }
+
    .btn {
     border: 2px solid var(--light);
     width: 100%;
     height: 3rem;
-    border-radius: 3rem;
+    border-radius: 15px;
     margin-bottom: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
     background:transparent;
     cursor: pointer;
     transition: all 450ms ease-in-out;
@@ -195,11 +297,16 @@ header h1 {
   .btn:hover .sparkle {
     fill: var(--light);
     transform: scale(1.2);
-  } 
+  }
+
+  .account {
+    display: flex;
+    justify-content: center;
+    margin-top: -1rem;
+  }
 
 .form p {
     color: var(--light);
-    margin: 0.6rem;
     font-size: 0.8rem;
 }
 
@@ -211,8 +318,65 @@ header h1 {
 .form p a:hover {
     text-decoration: underline;
     color: var(--light);
-
 }
+
+.or {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.or p {
+    padding: 0.7rem;
+    border: 1px solid var(--light-blue);
+    border-radius: 50%;
+    font-size: 1.1rem;
+    box-shadow: inset 3px 8px 14px rgb(5, 5, 5); 
+    background: -webkit-linear-gradient(to right, #34053f, #46057c), #34053f;
+    background: linear-gradient(to right, #34053f, #46057c, #34053f);
+    z-index: 2;
+}
+
+.or::after {
+    content: "";
+    position: absolute;
+    height:1px;
+    width: 65%;
+    background-color: var(--light-blue);
+}
+
+.social-login{
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: row;
+    margin-top: 1.2rem;
+}
+
+.social-login button {
+    font-size: 0.9rem;
+    font-weight: 450;
+    padding: 12px;
+    color: var(--light);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-radius: 15px;
+    border: 2px solid var(--light);
+}
+
+.social-login i {
+    font-size: 2.1rem;
+}
+.facebook {
+ background-color: 	#4267B2;
+}
+
+.google {
+    background-color: #DB4437;
+}
+
 .box .small-box {
     position: absolute;
     border-radius: 10% 30%;
