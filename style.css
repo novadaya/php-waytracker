@@ -86,7 +86,8 @@ header h1 {
 .card {
     position: relative;
     width: 100%;
-    cursor: pointer;
+    display: flex;
+    justify-content: center;
     transform-style: preserve-3d;
     transform-origin: center right;
     transition: transform 1s;
@@ -113,7 +114,6 @@ header h1 {
 .form-text {
     position:absolute;
     top: -1px;
-    left: 140px;
     padding: 15px 20px 15px 20px;
     border-radius: 0 0 15px 15px;
     border-right:  1px solid var(--light);
@@ -386,6 +386,8 @@ header h1 {
     align-items: center;
     border-radius: 15px;
     border: 2px solid var(--light);
+    cursor: pointer;
+    transition: all 450ms ease-in-out; 
 }
 
 .social-login button:hover {
