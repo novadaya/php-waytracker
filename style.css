@@ -388,6 +388,15 @@ header h1 {
     border: 2px solid var(--light);
 }
 
+.social-login button:hover {
+    box-shadow: inset 0px 1px 0px 0px var(--dark),
+    inset 0px -4px 0px 0px var(--dark),
+    0px 0px 0px 3px var(--light),
+    0px 0px 60px 0px var(--light-blue);
+    transform: translateY(-2px);
+  }
+  
+
 .social-login i {
     font-size: 2.1rem;
 }
