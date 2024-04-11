@@ -4,59 +4,107 @@
         <title>Test Page for PHP and HTML</title>
         <script src="https://kit.fontawesome.com/0ae9cfa4e0.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="style.css">
-        <script src="myscript.js"></script>
     </head>
     <body>  
         <main class="main">
             <header>
                 <h1>WayTracker</h1>
             </header>
-            <div class="box">
+            <main class="box">
                 <div class="small-box"></div>
                 <div class="small-box"></div>
                 <div class="small-box"></div>
                 <div class="small-box"></div>
                 <div class="scene scene--card">
                     <div class="card">
-                        <div class="form-text">
-                            <h1 class="login-h1">Login</h1>
-                       </div>
-                      <div class="form">
-                        <div class="input-box">
-                          <i class="fa-solid fa-user favicon"></i>
-                              <input type="text">
-                              <label class="user-label">Username</label>
-                          </div>
-                          <div class="input-box">
-                              <i class="fa-solid fa-key  favicon"></i>
-                              <input type="password">
-                              <label class="user-label">Password</label>
-                          </div>
-                          <div class="remember-forgot">
-                              <div class="checkbox-container">
-                                  <label class="checkbox-label">
-                                      <input type="checkbox" class="checkbox">Remember me</label>
+                      <div class="card__face card__face--front">
+                        <div class="flip-card">
+                            <div class="card-front">
+                                <div class="form-text">
+                                    <h1 class="login-h1">Login</h1>
+                               </div>
+                              <div class="form">
+                                <div class="input-box">
+                                  <i class="fa-solid fa-user favicon"></i>
+                                      <input id="username" type="text"/>
+                                      <label class="user-label">Username</label>
+                                  </div>
+                                  <div class="input-box">
+                                      <i class="fa-solid fa-key  favicon"></i>
+                                      <input id="password" type="password">
+                                      <label class="user-label">Password</label>
+                                  </div>
+                                  <div class="remember-forgot">
+                                      <div class="checkbox-container">
+                                          <label class="checkbox-label">
+                                              <input id="rememberme" type="checkbox" class="checkbox">Remember me</label>
+                                      </div>
+                                      <a href="#" class="forgot">Forgot Password?</a>
+                                  </div>
+                                  <div class="input-box">
+                                      <button class="btn" type="submit" value="Login">
+                                          <span class="text">Login</span>
+                                      </button>
+                                  </div>
+                                  <div class="account">
+                                      <p>Don't have an Account? <a onclick="myFunc()">Sign Up</a></p>
+                                  </div>
+                                  <div class="or">
+                                      <p>Or</p>
+                                  </div>
+                                    <div class="social-login">
+                                      <button class="facebook"><i class="fa-brands fa-facebook socialfav"></i> Login with Facebook</button>
+                                      <button class="google"><i class="fa-brands fa-google-plus"></i> Login with Google</button>
+                                  </div>
                               </div>
-                              <a href="#" class="forgot">Forgot Password?</a>
-                          </div>
-                          <div class="input-box">
-                              <button class="btn" type="submit" value="Login">
-                                  <span class="text">Login</span>
-                              </button>
-                          </div>
-                          <div class="account">
-                              <p>Don't have an Account? <a href="#">Sign Up</a></p>
-                          </div>
-                          <div class="or">
-                              <p>Or</p>
-                          </div>
-                            <div class="social-login">
-                              <button class="facebook"><i class="fa-brands fa-facebook socialfav"></i> Login with Facebook</button>
-                              <button class="google"><i class="fa-brands fa-google-plus"></i> Login with Google</button>
-                          </div>
+                            </div>
+                        </div>
+                      </div>
+                      
+                      <div class="card__face card__face--back">
+                        <div class="flip-card">
+                            <div class="card-front">
+                                <div class="form-text">
+                                    <h1 class="login-h1">Register</h1>
+                               </div>
+                              <div class="form">
+                                <div class="input-box">
+                                  <i class="fa-solid fa-user favicon"></i>
+                                      <input id="reg-username" type="text">
+                                      <label class="user-label">Username</label>
+                                  </div>
+                                  <div class="input-box">
+                                    <i class="fa-solid fa-envelope favicon"></i>
+                                        <input id="reg-email" type="text">
+                                        <label class="user-label">Email</label>
+                                    </div>
+                                  <div class="input-box">
+                                      <i class="fa-solid fa-key  favicon"></i>
+                                      <input id="reg-password" type="password">
+                                      <label class="user-label">Password</label>
+                                  </div>
+                                  <div class="input-box">
+                                      <button class="btn" type="submit" value="Login">
+                                          <span class="text">Create an Account</span>
+                                      </button>
+                                  </div>
+                                  <div class="account">
+                                      <p>Have an Account? <a onclick="myFunc()">Login</a></p>
+                                  </div>
+                                  <div class="or">
+                                      <p>Or</p>
+                                  </div>
+                                    <div class="social-login">
+                                      <button class="facebook"><i class="fa-brands fa-facebook socialfav"></i> Login with Facebook</button>
+                                      <button class="google"><i class="fa-brands fa-google-plus"></i> Login with Google</button>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
                       </div>
                     </div>
-                </div>
+                  </div>
         </main>
+        <script src="myscript.js"></script>  
     </body>
 </html>
