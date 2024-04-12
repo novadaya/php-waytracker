@@ -23,7 +23,7 @@
                                 <div class="form-text">
                                     <h1 class="login-h1">Login</h1>
                                </div>
-                              <div class="form" method="post" action="login.php">
+                              <div class="form" method="post" action="./src/login.php">
                                 <div class="input-box">
                                   <i class="fa-solid fa-user favicon"></i>
                                       <input id="username" name="username" type="text"/>
@@ -42,7 +42,7 @@
                                       <a href="#" class="forgot">Forgot Password?</a>
                                   </div>
                                   <div class="input-box">
-                                      <button class="btn" type="submit" value="Login">
+                                      <button class="btn" type="submit" name="login" value="login">
                                           <span class="text">Login</span>
                                       </button>
                                   </div>
@@ -67,7 +67,7 @@
                                 <div class="form-text">
                                     <h1 class="login-h1">Register</h1>
                                </div>
-                              <div class="form" method="post" action="register.php">
+                              <div class="form" method="post" action="/src/register.php">
                                 <div class="input-box">
                                   <i class="fa-solid fa-user favicon"></i>
                                       <input id="reg-username" name="reg-username" type="text">
@@ -84,7 +84,7 @@
                                       <label class="user-label">Password</label>
                                   </div>
                                   <div class="input-box">
-                                      <button class="btn" type="submit" value="Login">
+                                      <button class="btn" type="submit" name="register" value="register">
                                           <span class="text">Create an Account</span>
                                       </button>
                                   </div>
@@ -109,66 +109,3 @@
     </body>
 </html>
 
-<?php
-    // Kapcsolódás az adatbázishoz
-$servername = "localhost";
-$username = "felhasznalonev";
-$password = "jelszo";
-$dbname = "adatbazisnev";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Ellenőrizd a kapcsolatot
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Bejelentkezés kezelése
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // Ellenőrizd a felhasználót az adatbázisban
-    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows == 1) {
-        // Sikeres bejelentkezés
-        session_start();
-        $_SESSION['username'] = $username;
-        // Redirect to dashboard or any other page
-        header("Location: dashboard.php");
-        exit();
-    } else {
-        // Sikertelen bejelentkezés
-        echo "Invalid username or password.";
-    }
-}
-
-// Regisztráció kezelése
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
-    $username = $_POST['reg-username'];
-    $email = $_POST['reg-email'];
-    $password = $_POST['reg-password'];
-
-    // Ellenőrizd, hogy a felhasználónév és az email cím létezik-e már
-    $check_query = "SELECT * FROM users WHERE username='$username' OR email='$email'";
-    $check_result = $conn->query($check_query);
-
-    if ($check_result->num_rows > 0) {
-        echo "Username or email already exists.";
-    } else {
-        // Felhasználó hozzáadása az adatbázishoz
-        $insert_query = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
-        if ($conn->query($insert_query) === TRUE) {
-            echo "Registration successful.";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-    }
-}
-
-// Adatbázis kapcsolat bezárása
-$conn->close();
-
-?>

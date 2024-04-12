@@ -23,7 +23,7 @@
                                 <div class="form-text">
                                     <h1 class="login-h1">Login</h1>
                                </div>
-                              <div class="form">
+                              <div class="form" method="post" action="./src/login.php">
                                 <div class="input-box">
                                   <i class="fa-solid fa-user favicon"></i>
                                       <input id="username" type="text"/>
@@ -42,7 +42,7 @@
                                       <a href="#" class="forgot">Forgot Password?</a>
                                   </div>
                                   <div class="input-box">
-                                      <button class="btn" type="submit" value="Login">
+                                      <button class="btn" type="submit" name="login" value="login">
                                           <span class="text">Login</span>
                                       </button>
                                   </div>
@@ -67,7 +67,7 @@
                                 <div class="form-text">
                                     <h1 class="login-h1">Register</h1>
                                </div>
-                              <div class="form">
+                              <div class="form" method="post" action="./src/register.php">
                                 <div class="input-box">
                                   <i class="fa-solid fa-user favicon"></i>
                                       <input id="reg-username" type="text">
@@ -84,7 +84,7 @@
                                       <label class="user-label">Password</label>
                                   </div>
                                   <div class="input-box">
-                                      <button class="btn" type="submit" value="Login">
+                                      <button class="btn" type="submit" name="register" value="register">
                                           <span class="text">Create an Account</span>
                                       </button>
                                   </div>

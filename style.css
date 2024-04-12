@@ -51,7 +51,7 @@ header {
     box-shadow: 8px 25px 45px var(--dark);
 }
 
-header h1 {
+header h1 { 
     color: var(--light);
     font-family: Oldcar, Arial, sans-serif;
     font-size: 3.9rem;
