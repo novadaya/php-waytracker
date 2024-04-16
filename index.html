@@ -23,7 +23,7 @@
                                 <div class="form-text">
                                     <h1 class="login-h1">Login</h1>
                                </div>
-                              <div class="form" method="post" action="./src/login.php">
+                              <form class="form" method="POST" action="./src/login.php">
                                 <div class="input-box">
                                   <i class="fa-solid fa-user favicon"></i>
                                       <input id="username" type="text"/>
@@ -56,7 +56,7 @@
                                       <button class="facebook"><i class="fa-brands fa-facebook socialfav"></i> Login with Facebook</button>
                                       <button class="google"><i class="fa-brands fa-google-plus"></i> Login with Google</button>
                                   </div>
-                              </div>
+                              </form>
                             </div>
                         </div>
                       </div>
@@ -67,20 +67,20 @@
                                 <div class="form-text">
                                     <h1 class="login-h1">Register</h1>
                                </div>
-                              <div class="form" method="post" action="./src/register.php">
+                              <form class="form" action="./src/register.php" method="POST" >
                                 <div class="input-box">
                                   <i class="fa-solid fa-user favicon"></i>
-                                      <input id="reg-username" type="text">
+                                      <input id="reg-username" name="reg-username" type="text">
                                       <label class="user-label">Username</label>
                                   </div>
                                   <div class="input-box">
                                     <i class="fa-solid fa-envelope favicon"></i>
-                                        <input id="reg-email" type="text">
+                                        <input id="reg-email" name="reg-email" type="text">
                                         <label class="user-label">Email</label>
                                     </div>
                                   <div class="input-box">
                                       <i class="fa-solid fa-key  favicon"></i>
-                                      <input id="reg-password" type="password">
+                                      <input id="reg-password" name="reg-password" type="password">
                                       <label class="user-label">Password</label>
                                   </div>
                                   <div class="input-box">
@@ -98,7 +98,7 @@
                                       <button class="facebook"><i class="fa-brands fa-facebook socialfav"></i> Login with Facebook</button>
                                       <button class="google"><i class="fa-brands fa-google-plus"></i> Login with Google</button>
                                   </div>
-                              </div>
+                              </form>
                             </div>
                         </div>
                       </div>
