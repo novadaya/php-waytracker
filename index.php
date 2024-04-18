@@ -1,38 +1,9 @@
-<?php
-    include ("./src/config.php");
+<?php include './src/authController.php'; ?>
 
-    // Regisztráció kezelése
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
-    $username = $_POST['reg-username'];
-    $email = $_POST['reg-email'];
-    $password = $_POST['reg-password'];
-
-    // Ellenőrizd, hogy a felhasználónév és az email cím létezik-e már
-    $check_query = "SELECT * FROM users WHERE username='$username' OR email='$email'";
-    $check_result = $conn->query($check_query);
-
-    if ($check_result->num_rows > 0) {
-        echo "Username or email already exists.";
-    } else {
-        // Felhasználó hozzáadása az adatbázishoz
-        $insert_query = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
-        if ($conn->query($insert_query) === TRUE) {
-            echo "Registration successful.";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-    }
-}
-
-echo "Lefutott";
-// Adatbázis kapcsolat bezárása
-$conn->close();
-
-?>
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Test Page for PHP and HTML</title>
+        <title>WayTracker System</title>
         <script src="https://kit.fontawesome.com/0ae9cfa4e0.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="style.css">
     </head>
@@ -54,7 +25,7 @@ $conn->close();
                                 <div class="form-text">
                                     <h1 class="login-h1">Login</h1>
                                </div>
-                              <div class="form" method="post" action="./src/login.php">
+                              <form class="form" method="POST" action="./src/authController.php">
                                 <div class="input-box">
                                   <i class="fa-solid fa-user favicon"></i>
                                       <input id="username" name="username" type="text"/>
@@ -72,13 +43,14 @@ $conn->close();
                                       </div>
                                       <a href="#" class="forgot">Forgot Password?</a>
                                   </div>
+                                  
                                   <div class="input-box">
                                       <button class="btn" type="submit" name="login" value="login">
                                           <span class="text">Login</span>
                                       </button>
                                   </div>
                                   <div class="account">
-                                      <p>Don't have an Account? <a onclick="myFunc()">Sign Up</a></p>
+                                      <p>Don't have an Account? <a onclick="flipCard()">Sign Up</a></p>
                                   </div>
                                   <div class="or">
                                       <p>Or</p>
@@ -87,7 +59,7 @@ $conn->close();
                                       <button class="facebook"><i class="fa-brands fa-facebook socialfav"></i> Login with Facebook</button>
                                       <button class="google"><i class="fa-brands fa-google-plus"></i> Login with Google</button>
                                   </div>
-                              </div>
+                              </form>
                             </div>
                         </div>
                       </div>
@@ -98,7 +70,7 @@ $conn->close();
                                 <div class="form-text">
                                     <h1 class="login-h1">Register</h1>
                                </div>
-                              <div class="form" method="post" action="/src/register.php">
+                              <form class="form" method="POST" action="./src/authController.php">
                                 <div class="input-box">
                                   <i class="fa-solid fa-user favicon"></i>
                                       <input id="reg-username" name="reg-username" type="text">
@@ -115,12 +87,24 @@ $conn->close();
                                       <label class="user-label">Password</label>
                                   </div>
                                   <div class="input-box">
+                                      <i class="fa-solid fa-key  favicon"></i>
+                                      <input id="reg-passwordConf" name="reg-passwordConf" type="password">
+                                      <label class="user-label">Confirm Password</label>
+                                  </div>
+                                  <div class="remember-forgot">
+                                      <div class="checkbox-container">
+                                          <label class="checkbox-label">
+                                              <input id="accept-privacy" name="accept-privacy" type="checkbox" class="checkbox">Accept privacy policy</label>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="input-box">
                                       <button class="btn" type="submit" name="register" value="register">
                                           <span class="text">Create an Account</span>
                                       </button>
                                   </div>
                                   <div class="account">
-                                      <p>Have an Account? <a onclick="myFunc()">Login</a></p>
+                                      <p>Have an Account? <a onclick="flipCard()">Login</a></p>
                                   </div>
                                   <div class="or">
                                       <p>Or</p>
@@ -129,7 +113,7 @@ $conn->close();
                                       <button class="facebook"><i class="fa-brands fa-facebook socialfav"></i> Login with Facebook</button>
                                       <button class="google"><i class="fa-brands fa-google-plus"></i> Login with Google</button>
                                   </div>
-                              </div>
+                              </form>
                             </div>
                         </div>
                       </div>

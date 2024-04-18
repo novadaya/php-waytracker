@@ -24,6 +24,10 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 16px; 
+  }
+
 body {
     overflow: hidden;
     font-family: Ezarion,  Arial, sans-serif;
@@ -89,9 +93,9 @@ header h1 {
   
   .card__face {
     position: absolute;
-    width: 480px;
+    width: 500px;
     backdrop-filter: blur(5px);
-    backface-visibility: hidden;
+    backface-visibility: hidden;  
   }
   
   .card__face--back {
@@ -164,10 +168,21 @@ header h1 {
     
 }
 
+.error-message{
+    width: auto;
+    margin-top: 1rem;
+    background-color: #DB4437;
+    color: var(--yellow);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 10px;
+}
+
 .form .input-box {
     position: relative;
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .form .input-box input {
@@ -254,7 +269,7 @@ header h1 {
   
   .checkbox:before {
     content: "";
-    background-color: var(--light-blue);
+    background-color: var(--yellow);
     display: block;
     position: absolute;
     top: 50%;
@@ -264,6 +279,10 @@ header h1 {
     height: 0.5rem;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
+  }
+
+  .checkbox:checked{
+    border: 2px solid var(--yellow);
   }
   
   .checkbox:checked:before {

@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
         }
     }
 }
-
+echo "Kész";
 // Adatbázis kapcsolat bezárása
 $conn->close();
 
