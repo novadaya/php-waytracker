@@ -29,8 +29,10 @@ html {
   }
 
 body {
-    overflow: hidden;
     font-family: Ezarion,  Arial, sans-serif;
+    background: url("./Assets/night-city.webp") center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .main {
@@ -38,8 +40,6 @@ body {
     height: 100dvh;
     display: flex;
     justify-content: center;
-    background: url("./Assets/night-city.webp") center no-repeat;
-    background-size: cover;
 }
 
 header {

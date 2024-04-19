@@ -1,11 +1,10 @@
 <?php
-include ("config.php");
+include "config.php";
 session_start();
 $username = "";
 $email = "";
 $errors = [];
 
-include "./config.php";
 // SIGN UP USER
 if (isset($_POST['register'])) {
     if (empty($_POST['reg-username'])) {
@@ -57,6 +56,7 @@ if (isset($_POST['register'])) {
             $_SESSION['error_msg'] = "Database error: Could not register user";
         }
     }
+
 }
 
 // LOGIN
@@ -98,5 +98,5 @@ if (isset($_POST['login'])) {
         }
     }
 }
-
+echo "lefutott de minek";
 ?>

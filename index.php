@@ -1,5 +1,3 @@
-<?php include './src/authController.php'; ?>
-
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -24,28 +22,27 @@
                             <div class="card-front">
                                 <div class="form-text">
                                     <h1 class="login-h1">Login</h1>
-                               </div>
-                              <form class="form" method="POST" action="./src/authController.php">
+                                </div>
+                                <div id="login-form" class="form">
                                 <div class="input-box">
-                                  <i class="fa-solid fa-user favicon"></i>
-                                      <input id="username" name="username" type="text"/>
-                                      <label class="user-label">Username</label>
+                                    <i class="fa-solid fa-user favicon"></i>
+                                    <input id="username" name="username" type="text"/>
+                                    <label class="user-label">Username</label>
                                   </div>
                                   <div class="input-box">
-                                      <i class="fa-solid fa-key  favicon"></i>
-                                      <input id="password" name="password" type="password">
-                                      <label class="user-label">Password</label>
+                                    <i class="fa-solid fa-key  favicon"></i>
+                                    <input id="password" name="password" type="password">
+                                    <label class="user-label">Password</label>
                                   </div>
                                   <div class="remember-forgot">
                                       <div class="checkbox-container">
-                                          <label class="checkbox-label">
-                                              <input id="rememberme" name="rememberme" type="checkbox" class="checkbox">Remember me</label>
+                                        <label class="checkbox-label">
+                                        <input id="rememberme" name="rememberme" type="checkbox" class="checkbox">Remember me</label>
                                       </div>
                                       <a href="#" class="forgot">Forgot Password?</a>
                                   </div>
-                                  
                                   <div class="input-box">
-                                      <button class="btn" type="submit" name="login" value="login">
+                                      <button class="btn" onclick="loginUser()">
                                           <span class="text">Login</span>
                                       </button>
                                   </div>
@@ -59,7 +56,7 @@
                                       <button class="facebook"><i class="fa-brands fa-facebook socialfav"></i> Login with Facebook</button>
                                       <button class="google"><i class="fa-brands fa-google-plus"></i> Login with Google</button>
                                   </div>
-                              </form>
+                                </div>
                             </div>
                         </div>
                       </div>
@@ -69,8 +66,8 @@
                             <div class="card-front">
                                 <div class="form-text">
                                     <h1 class="login-h1">Register</h1>
-                               </div>
-                              <form class="form" method="POST" action="./src/authController.php">
+                                </div>
+                                <div id="reg-form" class="form">
                                 <div class="input-box">
                                   <i class="fa-solid fa-user favicon"></i>
                                       <input id="reg-username" name="reg-username" type="text">
@@ -97,9 +94,8 @@
                                               <input id="accept-privacy" name="accept-privacy" type="checkbox" class="checkbox">Accept privacy policy</label>
                                       </div>
                                   </div>
-                                  
                                   <div class="input-box">
-                                      <button class="btn" type="submit" name="register" value="register">
+                                      <button class="btn" onclick="registerUser()">
                                           <span class="text">Create an Account</span>
                                       </button>
                                   </div>
@@ -113,13 +109,13 @@
                                       <button class="facebook"><i class="fa-brands fa-facebook socialfav"></i> Login with Facebook</button>
                                       <button class="google"><i class="fa-brands fa-google-plus"></i> Login with Google</button>
                                   </div>
-                              </form>
+                                </div>
                             </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-        </main>
+                </div>
+            </main>
         <script src="myscript.js"></script>  
     </body>
 </html>

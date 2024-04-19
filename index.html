@@ -1,8 +1,7 @@
-
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Test Page for PHP and HTML</title>
+        <title>WayTracker System</title>
         <script src="https://kit.fontawesome.com/0ae9cfa4e0.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="style.css">
     </head>
@@ -23,35 +22,32 @@
                             <div class="card-front">
                                 <div class="form-text">
                                     <h1 class="login-h1">Login</h1>
-                               </div>
-                              <form class="form" method="POST" action="./src/login.php">
+                                </div>
+                                <div id="login-form" class="form">
                                 <div class="input-box">
-                                  <i class="fa-solid fa-user favicon"></i>
-                                      <input id="username" type="text"/>
-                                      <label class="user-label">Username</label>
+                                    <i class="fa-solid fa-user favicon"></i>
+                                    <input id="username" name="username" type="text"/>
+                                    <label class="user-label">Username</label>
                                   </div>
                                   <div class="input-box">
-                                      <i class="fa-solid fa-key  favicon"></i>
-                                      <input id="password" type="password">
-                                      <label class="user-label">Password</label>
+                                    <i class="fa-solid fa-key  favicon"></i>
+                                    <input id="password" name="password" type="password">
+                                    <label class="user-label">Password</label>
                                   </div>
-                                  <div class="remember-forgot">
+                                  <div id="login-error" class="remember-forgot">
                                       <div class="checkbox-container">
-                                          <label class="checkbox-label">
-                                              <input id="rememberme" type="checkbox" class="checkbox">Remember me</label>
+                                        <label class="checkbox-label">
+                                        <input id="rememberme" name="rememberme" type="checkbox" class="checkbox">Remember me</label>
                                       </div>
                                       <a href="#" class="forgot">Forgot Password?</a>
                                   </div>
-                                  <div class="error-message">
-                                    Valami hiba történt!
-                                </div>
                                   <div class="input-box">
-                                      <button class="btn" type="submit" name="login" value="login">
+                                      <button class="btn" onclick="loginUser()">
                                           <span class="text">Login</span>
                                       </button>
                                   </div>
                                   <div class="account">
-                                      <p>Don't have an Account? <a onclick="myFunc()">Sign Up</a></p>
+                                      <p>Don't have an Account? <a onclick="flipCard()">Sign Up</a></p>
                                   </div>
                                   <div class="or">
                                       <p>Or</p>
@@ -60,7 +56,7 @@
                                       <button class="facebook"><i class="fa-brands fa-facebook socialfav"></i> Login with Facebook</button>
                                       <button class="google"><i class="fa-brands fa-google-plus"></i> Login with Google</button>
                                   </div>
-                              </form>
+                                </div>
                             </div>
                         </div>
                       </div>
@@ -70,11 +66,8 @@
                             <div class="card-front">
                                 <div class="form-text">
                                     <h1 class="login-h1">Register</h1>
-                               </div>
-                              <form class="form" action="./src/register.php" method="POST" >
-                                <div class="error-message">
-                                    Valami hiba történt!
                                 </div>
+                                <div id="reg-form" class="form">
                                 <div class="input-box">
                                   <i class="fa-solid fa-user favicon"></i>
                                       <input id="reg-username" name="reg-username" type="text">
@@ -91,12 +84,23 @@
                                       <label class="user-label">Password</label>
                                   </div>
                                   <div class="input-box">
-                                      <button class="btn" type="submit" name="register" value="register">
+                                      <i class="fa-solid fa-key  favicon"></i>
+                                      <input id="reg-passwordConf" name="reg-passwordConf" type="password">
+                                      <label class="user-label">Confirm Password</label>
+                                  </div>
+                                  <div id="register-error" class="remember-forgot">
+                                      <div class="checkbox-container">
+                                          <label class="checkbox-label">
+                                              <input id="accept-privacy" name="accept-privacy" type="checkbox" class="checkbox">Accept privacy policy</label>
+                                      </div>
+                                  </div>
+                                  <div class="input-box">
+                                      <button class="btn" onclick="registerUser()">
                                           <span class="text">Create an Account</span>
                                       </button>
                                   </div>
                                   <div class="account">
-                                      <p>Have an Account? <a onclick="myFunc()">Login</a></p>
+                                      <p>Have an Account? <a onclick="flipCard()">Login</a></p>
                                   </div>
                                   <div class="or">
                                       <p>Or</p>
@@ -105,13 +109,14 @@
                                       <button class="facebook"><i class="fa-brands fa-facebook socialfav"></i> Login with Facebook</button>
                                       <button class="google"><i class="fa-brands fa-google-plus"></i> Login with Google</button>
                                   </div>
-                              </form>
+                                </div>
                             </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-        </main>
+                </div>
+            </main>
         <script src="myscript.js"></script>  
     </body>
 </html>
+
